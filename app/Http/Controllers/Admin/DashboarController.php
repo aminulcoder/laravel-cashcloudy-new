@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin; // Namespace ঠিক আছে কিনা চেক করো
 
+use App\Http\Controllers\Controller;
 use App\Services\ExchangeRateService;
 use Inertia\Inertia;
-use App\Http\Controllers\Controller;
-use Exception;
 
 class DashboardController extends Controller
 {
@@ -18,20 +17,21 @@ class DashboardController extends Controller
 
     public function index()
     {
-        try {
-            // Get the exchange rate for USD to BDT
-            $rate = $this->exchangeRateService->getRate('USD', 'BDT');
+        $rate = $this->exchangeRateService->getRate('USD', 'BDT');
 
-            // return $rate;
-        } catch (Exception $e) {
-            // Handle the error gracefully
-            $rate = null; // Or a default value like 110.0
-            \Log::error('Exchange rate fetch failed: ' . $e->getMessage());
-        }
+        // return Inertia::render('admin/Dashboard', [
+        //     'rate' => $rate,
+        // ]);
 
-        // Pass the rate to Inertia (React component)
-        return Inertia::render('Admin/Dashboard', [
-            'rate' => $rate,
-        ]);
+
+        return "abc";
+    }
+
+
+
+    public function present()  {
+
+        return "abc";
+
     }
 }

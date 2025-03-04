@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EarnmoneyController;
-use App\Http\Controllers\Admin\ExchangeRateController;
+
 use App\Http\Controllers\Admin\RequestmoneyController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SendmoneyController;
@@ -11,12 +11,20 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StripeController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\WithdrawmoneyController;
+use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth','verified')->prefix('admin')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
+    Route::get('present', [DashboardController::class, 'present']);
+    // Route::get('dashboard', function(){
+    //     return "avfg";
+    // })->name('dashboard');
+
+
     Route::get('transection', [TransactionController::class, 'transection'])->name('transection');
     Route::get('earnmoney', [EarnmoneyController::class, 'earnmoney'])->name('earnmoney');
     Route::get('sendmoney', [SendmoneyController::class, 'sendmoney'])->name('sendmoney');
