@@ -12,8 +12,8 @@ export default function Register() {
         name: "",
         country: "",
         email: "",
-        password: '',
-        password_confirmation: '',
+        password: "",
+        password_confirmation: "",
     });
 
     const submit = (e) => {
@@ -34,7 +34,6 @@ export default function Register() {
                         <div className="p-8 py-12 md:p-12">
                             <Link href="/">
                                 <img
-
                                     src={`${window.location.origin}/assets/Dashboard/Clip path group.png`}
                                     alt="Logo"
                                     className="w-10 h-10"
@@ -55,8 +54,14 @@ export default function Register() {
                                         name="firstName"
                                         value={data.firstName}
                                         placeholder="e.g. Howard"
-                                        onChange={(e) => setData("firstName", e.target.value)}
+                                        onChange={(e) =>
+                                            setData("firstName", e.target.value)
+                                        }
                                         className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                                    />
+                                    <InputError
+                                        message={errors.firstName}
+                                        className="mt-2"
                                     />
                                 </div>
                                 <div>
@@ -68,8 +73,15 @@ export default function Register() {
                                         name="lastname"
                                         value={data.lastname}
                                         placeholder="e.g. Thurman"
-                                        onChange={(e) => setData("lastname", e.target.value)}
+                                        onChange={(e) =>
+                                            setData("lastname", e.target.value)
+                                        }
                                         className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                                    />
+
+                                    <InputError
+                                        message={errors.lastname}
+                                        className="mt-2"
                                     />
                                 </div>
                             </div>
@@ -82,14 +94,22 @@ export default function Register() {
                                 <select
                                     name="country"
                                     value={data.country}
-                                    onChange={(e) => setData("country", e.target.value)}
+                                    onChange={(e) =>
+                                        setData("country", e.target.value)
+                                    }
                                     className="w-full mt-2 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-600"
                                 >
-                                    <option value="">Select your country</option>
+                                    <option value="">
+                                        Select your country
+                                    </option>
                                     <option>United States</option>
                                     <option>Canada</option>
                                     <option>Mexico</option>
                                 </select>
+                                <InputError
+                                    message={errors.country}
+                                    className="mt-2"
+                                />
                             </div>
 
                             {/* Email */}
@@ -101,16 +121,25 @@ export default function Register() {
                                     name="email"
                                     value={data.email}
                                     className="mt-1 block w-full"
-                                    autoComplete="username"
-                                    onChange={(e) => setData("email", e.target.value)}
-                                    required
+                                    autoComplete="email"
+
+                                    onChange={(e) =>
+                                        setData("email", e.target.value)
+                                    }
+
                                 />
-                                <InputError message={errors.email} className="mt-2" />
+                                <InputError
+                                    message={errors.email}
+                                    className="mt-2"
+                                />
                             </div>
 
                             {/* Password */}
                             <div className="mt-4">
-                                <InputLabel htmlFor="password" value="Password" />
+                                <InputLabel
+                                    htmlFor="password"
+                                    value="Password"
+                                />
                                 <TextInput
                                     id="password"
                                     type="password"
@@ -118,15 +147,23 @@ export default function Register() {
                                     value={data.password}
                                     className="mt-1 block w-full"
                                     autoComplete="new-password"
-                                    onChange={(e) => setData("password", e.target.value)}
+                                    onChange={(e) =>
+                                        setData("password", e.target.value)
+                                    }
                                     required
                                 />
-                                <InputError message={errors.password} className="mt-2" />
+                                <InputError
+                                    message={errors.password}
+                                    className="mt-2"
+                                />
                             </div>
 
                             {/* Confirm Password */}
                             <div className="mt-4">
-                                <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
+                                <InputLabel
+                                    htmlFor="password_confirmation"
+                                    value="Confirm Password"
+                                />
                                 <TextInput
                                     id="password_confirmation"
                                     type="password"
@@ -134,16 +171,29 @@ export default function Register() {
                                     value={data.password_confirmation}
                                     className="mt-1 block w-full"
                                     autoComplete="new-password"
-                                    onChange={(e) => setData("password_confirmation", e.target.value)}
+                                    onChange={(e) =>
+                                        setData(
+                                            "password_confirmation",
+                                            e.target.value
+                                        )
+                                    }
                                     required
                                 />
-                                <InputError message={errors.password_confirmation} className="mt-2" />
+                                <InputError
+                                    message={errors.password_confirmation}
+                                    className="mt-2"
+                                />
                             </div>
 
                             {/* Submit Button */}
                             <div className="mt-6 flex justify-between items-center">
-                                <PrimaryButton disabled={processing}>Register</PrimaryButton>
-                                <Link href={route("login")} className="text-sm text-gray-600 hover:text-gray-900">
+                                <PrimaryButton disabled={processing}>
+                                    Register
+                                </PrimaryButton>
+                                <Link
+                                    href={route("login")}
+                                    className="text-sm text-gray-600 hover:text-gray-900"
+                                >
                                     Already registered?
                                 </Link>
                             </div>
@@ -158,9 +208,13 @@ export default function Register() {
                                     className="mb-6 w-16 h-16"
                                 />
                             </Link>
-                            <h3 className="text-xl font-bold">Welcome to Cashcloudy</h3>
+                            <h3 className="text-xl font-bold">
+                                Welcome to Cashcloudy
+                            </h3>
                             <p className="mt-2 text-center">
-                                Join us today and experience our seamless services. Already have an account? Just sign in and get started!
+                                Join us today and experience our seamless
+                                services. Already have an account? Just sign in
+                                and get started!
                             </p>
                         </div>
                     </div>

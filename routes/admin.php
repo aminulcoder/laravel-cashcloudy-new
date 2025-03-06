@@ -19,12 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth','verified')->prefix('admin')->group(function () {
     // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
-    Route::get('present', [DashboardController::class, 'present']);
-    // Route::get('dashboard', function(){
-    //     return "avfg";
-    // })->name('dashboard');
-
-
     Route::get('transection', [TransactionController::class, 'transection'])->name('transection');
     Route::get('earnmoney', [EarnmoneyController::class, 'earnmoney'])->name('earnmoney');
     Route::get('sendmoney', [SendmoneyController::class, 'sendmoney'])->name('sendmoney');
