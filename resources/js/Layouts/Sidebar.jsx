@@ -9,11 +9,17 @@ import { Cog6ToothIcon, XMarkIcon } from "@heroicons/react/24/outline";
 // import { Link } from "react-router-dom";
 import NavLink from "@/Components/NavLink";
 import { Link } from "@inertiajs/react";
-function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-}
+
+import classNames from "classnames";
+
+import { usePage } from "@inertiajs/react";
+
+// function classNames(...classes) {
+//     return classes.filter(Boolean).join(" ");
+// }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+    const { url } = usePage();
     return (
         <>
             <Dialog
@@ -60,106 +66,118 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                     className="h-8 w-auto"
                                 />
                             </Link>
-                            {/* <nav className="flex flex-1 flex-col">
-                <ul role="list" className="flex flex-1 flex-col gap-y-7">
-                  <li>
-                    <ul role="list" className="-mx-2 space-y-1">
-                      <li className=" space-y-1">
-                      <NavLink
-                      to="/admin/dashboard"
-                      className={({ isActive }) =>
-                        classNames(
-                          isActive
-                            ? "bg-[#7F56D9] text-white"
-                            : "text-gray-800 dark:text-gray-400 hover:bg-[#7F56D9] hover:text-white",
-                          "group flex gap-x-3 rounded-md p-2 lg:text-lg font-semibold leading-6"
-                        )
-                      }
-                    >
-                      {({ isActive }) => (
-                        <>
-                          <img
-                            src="/assets/icon/network black icon.svg"
-                            className={classNames(
-                              "h-6 w-6 shrink-0",
-                              "group-hover:brightness-0 group-hover:invert",
-                              isActive ? "brightness-0 invert" : ""
-                            )}
-                            alt="Dashboard Icon"
-                          />
-                          Dashboard
-                        </>
-                      )}
-                    </NavLink>
-                    <NavLink
-                      to="/admin/transction"
-                      className={({ isActive }) =>
-                        classNames(
-                          isActive
-                            ? "bg-[#7F56D9] text-white"
-                            : "text-gray-800 hover:bg-[#7F56D9] hover:text-white",
-                          "group flex gap-x-3 rounded-md p-2 group-hover:brightness-0 lg:text-lg font-semibold leading-6"
-                        )
-                      }
-                    >
-                   {({ isActive }) => (
-                        <>
-                          <img
-                            src="/assets/icon/switch-horizontal-01 (1).svg"
-                            className={classNames(
-                              "h-6 w-6 shrink-0",
-                              "group-hover:brightness-0 group-hover:invert",
-                              isActive ? "brightness-0 invert" : ""
-                            )}
-                            alt="Dashboard Icon"
-                          />
-                          Transactions
-                        </>
-                      )}
-                    </NavLink>
-                    <NavLink
-                      to="/admin/earn-20$"
-                      className={({ isActive }) =>
-                        classNames(
-                          isActive
-                            ? "bg-[#7F56D9] text-white"
-                            : "text-gray-800 dark:text-gray-400 hover:bg-[#7F56D9] hover:text-white",
-                          "group flex gap-x-3 rounded-md p-2 lg:text-lg font-semibold leading-6"
-                        )
-                      }
-                    >
-                      {({ isActive }) => (
-                        <>
-                          <img
-                            src="/assets/icon/gift black icon.svg"
-                            className={classNames(
-                              "h-6 w-6 shrink-0",
-                              "group-hover:brightness-0 group-hover:invert",
-                              isActive ? "brightness-0 invert" : ""
-                            )}
-                            alt="Dashboard Icon"
-                          />
-                           Earn 20$
-                        </>
-                      )}
-                    </NavLink>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="mt-auto">
-                    <a
-                      href="#"
-                      className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-800 dark:text-gray-400 hover:bg-gray-50 hover:text-indigo-600"
-                    >
-                      <Cog6ToothIcon
-                        aria-hidden="true"
-                        className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
-                      />
-                      Settings
-                    </a>
-                  </li>
-                </ul>
-              </nav> */}
+                            <nav className="flex flex-1 flex-col">
+                                <ul
+                                    role="list"
+                                    className="flex flex-1 flex-col gap-y-7"
+                                >
+                                    <li>
+                                        <ul
+                                            role="list"
+                                            className="-mx-2 space-y-1"
+                                        >
+                                            <li className=" space-y-1">
+                                                <NavLink
+                                                    to="/admin/dashboard"
+                                                    className={({ isActive }) =>
+                                                        classNames(
+                                                            isActive
+                                                                ? "bg-[#7F56D9] text-white"
+                                                                : "text-gray-800 dark:text-gray-400 hover:bg-[#7F56D9] hover:text-white",
+                                                            "group flex gap-x-3 rounded-md p-2 lg:text-lg font-semibold leading-6"
+                                                        )
+                                                    }
+                                                >
+                                                    {({ isActive }) => (
+                                                        <>
+                                                            <img
+                                                                src="/assets/icon/network black icon.svg"
+                                                                className={classNames(
+                                                                    "h-6 w-6 shrink-0",
+                                                                    "group-hover:brightness-0 group-hover:invert",
+                                                                    isActive
+                                                                        ? "brightness-0 invert"
+                                                                        : ""
+                                                                )}
+                                                                alt="Dashboard Icon"
+                                                            />
+                                                            Dashboard
+                                                        </>
+                                                    )}
+                                                </NavLink>
+                                                <NavLink
+                                                    to="/admin/transction"
+                                                    className={({ isActive }) =>
+                                                        classNames(
+                                                            isActive
+                                                                ? "bg-[#7F56D9] text-white"
+                                                                : "text-gray-800 hover:bg-[#7F56D9] hover:text-white",
+                                                            "group flex gap-x-3 rounded-md p-2 group-hover:brightness-0 lg:text-lg font-semibold leading-6"
+                                                        )
+                                                    }
+                                                >
+                                                    {({ isActive }) => (
+                                                        <>
+                                                            <img
+                                                                src="/assets/icon/switch-horizontal-01 (1).svg"
+                                                                className={classNames(
+                                                                    "h-6 w-6 shrink-0",
+                                                                    "group-hover:brightness-0 group-hover:invert",
+                                                                    isActive
+                                                                        ? "brightness-0 invert"
+                                                                        : ""
+                                                                )}
+                                                                alt="Dashboard Icon"
+                                                            />
+                                                            Transactions
+                                                        </>
+                                                    )}
+                                                </NavLink>
+                                                <NavLink
+                                                    to="/admin/earn-20$"
+                                                    className={({ isActive }) =>
+                                                        classNames(
+                                                            isActive
+                                                                ? "bg-[#7F56D9] text-white"
+                                                                : "text-gray-800 dark:text-gray-400 hover:bg-[#7F56D9] hover:text-white",
+                                                            "group flex gap-x-3 rounded-md p-2 lg:text-lg font-semibold leading-6"
+                                                        )
+                                                    }
+                                                >
+                                                    {({ isActive }) => (
+                                                        <>
+                                                            <img
+                                                                src="/assets/icon/gift black icon.svg"
+                                                                className={classNames(
+                                                                    "h-6 w-6 shrink-0",
+                                                                    "group-hover:brightness-0 group-hover:invert",
+                                                                    isActive
+                                                                        ? "brightness-0 invert"
+                                                                        : ""
+                                                                )}
+                                                                alt="Dashboard Icon"
+                                                            />
+                                                            Earn 20$
+                                                        </>
+                                                    )}
+                                                </NavLink>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li className="mt-auto">
+                                        <a
+                                            href="#"
+                                            className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-800 dark:text-gray-400 hover:bg-gray-50 hover:text-indigo-600"
+                                        >
+                                            <Cog6ToothIcon
+                                                aria-hidden="true"
+                                                className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
+                                            />
+                                            Settings
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </DialogPanel>
                 </div>
@@ -187,83 +205,102 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                             <li>
                                 <ul role="list" className="-mx-2 space-y-1">
                                     <li className=" space-y-1">
-                                        <NavLink
+
+
+                                        <Link
                                             href={route("dashboard")}
-                                            className={({ isActive }) =>
-                                                classNames(
-                                                    isActive
-                                                        ? "bg-[#7F56D9]  w-full text-white"
-                                                        : "text-white hover:bg-[#7F56D9] hover:text-white",
-                                                    "group flex gap-x-3  hover:text-white rounded-md p-2 lg:text-lg font-semibold leading-6"
-                                                )
-                                            }
+                                            className={`group flex text-gray-500 items-center gap-x-2 text-base sm:gap-x-3 rounded p-2 lg:text-lg font-semibold leading-6 hover:bg-[#7F56D9] hover:text-white ${
+                                                route().current("dashboard")
+                                                    ? "bg-[#7F56D9] text-white"
+                                                    : ""
+                                            }`}
                                         >
                                             <img
-                                                src={`${window.location.origin}/assets/Dashboard/sidebar/network black icon.svg`}
-                                                className="h-6 w-6"
-                                                alt="Dashboard Icon"
+                                                src={
+                                                    window.location.origin +
+                                                    "/assets/Dashboard/sidebar/network black icon.svg"
+                                                }
+                                                className={`h-4 w-4 sm:h-6 sm:w-6 shrink-0 group-hover:brightness-0 group-hover:invert ${
+                                                    route().current(
+                                                        "dashboard"
+                                                    )
+                                                        ? "brightness-0 invert"
+                                                        : ""
+                                                }`}
+                                                alt="Send Money"
                                             />
                                             Dashboard
-                                        </NavLink>
-
-                                        <NavLink
+                                        </Link>
+                                        <Link
                                             href={route("transection")}
-                                            className={({ isActive }) =>
-                                                classNames(
-                                                    isActive
-                                                        ? "bg-[#7F56D9]  w-full text-white"
-                                                        : "text-white hover:bg-[#7F56D9] hover:text-white",
-                                                    "group flex gap-x-3  hover:text-white rounded-md p-2 lg:text-lg font-semibold leading-6"
-                                                )
-                                            }
+                                            className={`group flex text-gray-500 items-center gap-x-2 text-base sm:gap-x-3 rounded p-2 lg:text-lg font-semibold leading-6 hover:bg-[#7F56D9] hover:text-white ${
+                                                route().current("transection")
+                                                    ? "bg-[#7F56D9] text-white"
+                                                    : ""
+                                            }`}
                                         >
                                             <img
-                                                src={`${window.location.origin}/assets/Dashboard/sidebar/switch-horizontal-01.svg`}
-                                                className="h-6 w-6"
-                                                alt="Dashboard Icon"
+                                                src={
+                                                    window.location.origin +
+                                                    "/assets/Dashboard/sidebar/switch-horizontal-01.svg"
+                                                }
+                                                className={`h-4 w-4 sm:h-6 sm:w-6 shrink-0 group-hover:brightness-0 group-hover:invert ${
+                                                    route().current(
+                                                        "transection"
+                                                    )
+                                                        ? "brightness-0 invert"
+                                                        : ""
+                                                }`}
+                                                alt="Send Money"
                                             />
                                             transection
-                                        </NavLink>
-                                        {/* <NavLink
+                                        </Link>
+                                        <Link
                                             href={route("earnmoney")}
-                                            className={({ isActive }) =>
-                                                classNames(
-                                                    isActive
-                                                        ? "bg-[#7F56D9]  w-full text-white"
-                                                        : "text-white hover:bg-[#7F56D9] hover:text-white",
-                                                    "group flex gap-x-3  hover:text-white rounded-md p-2 lg:text-lg font-semibold leading-6"
-                                                )
-                                            }
+                                            className={`group flex text-gray-500 items-center gap-x-2 text-base sm:gap-x-3 rounded p-2 lg:text-lg font-semibold leading-6 hover:bg-[#7F56D9] hover:text-white ${
+                                                route().current("earnmoney")
+                                                    ? "bg-[#7F56D9] text-white"
+                                                    : ""
+                                            }`}
                                         >
                                             <img
-                                                src={`${window.location.origin}/assets/Dashboard/sidebar/gift-02.svg`}
-                                                className="h-6 w-6"
-                                                alt="Dashboard Icon"
+                                                src={
+                                                    window.location.origin +
+                                                    "/assets/Dashboard/sidebar/gift-02.svg"
+                                                }
+                                                className={`h-4 w-4 sm:h-6 sm:w-6 shrink-0 group-hover:brightness-0 group-hover:invert ${
+                                                    route().current(
+                                                        "earnmoney"
+                                                    )
+                                                        ? "brightness-0 invert"
+                                                        : ""
+                                                }`}
+                                                alt="Send Money"
                                             />
-                                            Earn 20$
-                                        </NavLink> */}
-<NavLink
-    href={route("earnmoney")}
-    className={({ isActive }) => {
-        console.log(isActive); // Debugging log
-        return classNames(
-            isActive ? "bg-red-500 text-white" : "text-white hover:bg-[#7F56D9] hover:text-white",
-            "group flex gap-x-3 rounded-md p-2 lg:text-lg font-semibold leading-6"
-        );
-    }}
->
-    <img
-        src={`${window.location.origin}/assets/Dashboard/sidebar/gift-02.svg`}
-        className="h-6 w-6"
-        alt="Earn 20$ Icon"
-    />
-    Earn 20$
-</NavLink>
+                                          Earn 20$
+                                        </Link>
 
-
-
-
-
+                                        <Link
+                                            href={route("earnmoney")}
+                                            className={classNames(
+                                                url === route("earnmoney") // সম্পূর্ণ URL চেক
+                                                    ? "bg-red-500 text-white [&.active]:bg-[#7F56D9]" // Active হলে bg-red-500 হবে
+                                                    : "text-gray-800 dark:text-gray-400 [&.active]:bg-[#7F56D9] hover:bg-[#7F56D9] hover:text-white", // Hover effect
+                                                "group flex gap-x-3 rounded-md p-2  lg:text-lg font-semibold leading-6 transition-all duration-300"
+                                            )}
+                                        >
+                                            <img
+                                                src="/assets/Dashboard/sidebar/gift-02.svg"
+                                                className={classNames(
+                                                    "h-6 w-6 shrink-0 group-hover:brightness-0 group-hover:invert",
+                                                    url === route("earnmoney")
+                                                        ? "brightness-0 invert"
+                                                        : "" // Active হলে আইকনের রঙ পরিবর্তন
+                                                )}
+                                                alt="User Icon"
+                                            />
+                                            User
+                                        </Link>{" "}
                                     </li>
                                 </ul>
                             </li>

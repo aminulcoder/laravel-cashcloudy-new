@@ -17,6 +17,14 @@ return new class extends Migration
             $table->string('lastname')->nullable();
             $table->string('name')->nullable();
             $table->string('country')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('mother_name')->nullable();
+            $table->string('date_of_birth')->nullable();
+            $table->string('Present_address')->nullable();
+            $table->string('permanent_address')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('occupation')->nullable();
+            $table->string('signature')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
